@@ -18,4 +18,4 @@ ssh-add "$SSH_PATH/deploy_key"
 
 ssh-keyscan -t rsa $HOST >> "$SSH_PATH/known_hosts"
 
-sh -c "rsync $* $USER@$HOST:$PATH"
+sh -c "rsync $* $USER@$HOST:$TARGET_PATH"
