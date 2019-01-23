@@ -16,4 +16,4 @@ chmod 600 "$SSH_PATH/deploy_key.pub"
 eval $(ssh-agent)
 ssh-add "$SSH_PATH/deploy_key"
 
-rsync "$*"
+sh -c "rsync $*"
