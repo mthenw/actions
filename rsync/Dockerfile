@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM debian:stable-slim
 
 LABEL "com.github.actions.name"="rsync"
 LABEL "com.github.actions.description"="Copy files using rsync"
@@ -8,8 +8,9 @@ LABEL "com.github.actions.color"="purple"
 LABEL "repository"="http://github.com/mthenw/actions"
 LABEL "version"="1.0.0"
 
-RUN apk update
-RUN apk add rsync openssh
+RUN apt-get update && apt-get install -y \
+  openssh-client rsync && \
+  rm -Rf /var/lib/apt/lists/*
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
