@@ -1,2 +1,3 @@
-# actions
-GitHub actions
+# GitHub actions
+
+* [`rsync`](./rsync)
