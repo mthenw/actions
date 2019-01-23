@@ -20,4 +20,4 @@ ssh-add "$SSH_PATH/deploy_key"
 
 ssh-keyscan -t rsa $HOST >> "$SSH_PATH/known_hosts"
 
-sh -c "rsync $* $USER@$HOST:$TARGET_PATH"
+sh -c "rsync $*  -e \"ssh -o StrictHostKeyChecking=no\" $USER@$HOST:$TARGET_PATH"
